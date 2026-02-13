@@ -1,0 +1,98 @@
+[
+  {
+    "id": "1",
+    "title": "Summer Music Festival",
+    "imageUrl": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=80",
+    "date": "2024-07-15T18:00:00.000Z",
+    "locationName": "Central Park, New York",
+    "description": "Join us for an unforgettable evening of live music featuring top artists from around the world. Experience the magic of summer nights with incredible performances.",
+    "location": {
+      "latitude": 40.785091,
+      "longitude": -73.968285
+    }
+  },
+  {
+    "id": "2",
+    "title": "Tech Conference 2024",
+    "imageUrl": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
+    "date": "2024-08-20T09:00:00.000Z",
+    "locationName": "Convention Center, San Francisco",
+    "description": "Discover the latest innovations in technology. Network with industry leaders and learn about cutting-edge developments in AI, blockchain, and more.",
+    "location": {
+      "latitude": 37.784173,
+      "longitude": -122.401557
+    }
+  },
+  {
+    "id": "3",
+    "title": "Food & Wine Festival",
+    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80",
+    "date": "2024-09-10T12:00:00.000Z",
+    "locationName": "Downtown Plaza, Chicago",
+    "description": "Indulge in culinary delights from world-renowned chefs. Sample exquisite wines and gourmet dishes in this celebration of gastronomy.",
+    "location": {
+      "latitude": 41.878113,
+      "longitude": -87.629799
+    }
+  },
+  {
+    "id": "4",
+    "title": "Art Exhibition Opening",
+    "imageUrl": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80",
+    "date": "2024-10-05T17:00:00.000Z",
+    "locationName": "Modern Art Museum, Los Angeles",
+    "description": "Experience contemporary art from emerging and established artists. An evening of creativity, inspiration, and cultural exchange.",
+    "location": {
+      "latitude": 34.052235,
+      "longitude": -118.243683
+    }
+  },
+  {
+    "id": "5",
+    "title": "Marathon Challenge",
+    "imageUrl": "https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?w=800&q=80",
+    "date": "2024-11-12T07:00:00.000Z",
+    "locationName": "City Streets, Boston",
+    "description": "Push your limits in this annual marathon event. Whether you're a seasoned runner or first-timer, join thousands in this inspiring challenge.",
+    "location": {
+      "latitude": 42.360081,
+      "longitude": -71.058884
+    }
+  },
+  {
+    "id": "6",
+    "title": "Jazz Night Live",
+    "imageUrl": "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=800&q=80",
+    "date": "2024-12-01T20:00:00.000Z",
+    "locationName": "Blue Note Club, New Orleans",
+    "description": "Immerse yourself in the smooth sounds of jazz. Featuring legendary musicians and rising stars in an intimate venue setting.",
+    "location": {
+      "latitude": 29.951065,
+      "longitude": -90.071533
+    }
+  },
+  {
+    "id": "7",
+    "title": "Startup Pitch Competition",
+    "imageUrl": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=80",
+    "date": "2024-08-28T14:00:00.000Z",
+    "locationName": "Innovation Hub, Austin",
+    "description": "Watch entrepreneurs pitch their groundbreaking ideas to top investors. Network with founders and VCs in the startup ecosystem.",
+    "location": {
+      "latitude": 30.267153,
+      "longitude": -97.743057
+    }
+  },
+  {
+    "id": "8",
+    "title": "Film Festival Premiere",
+    "imageUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80",
+    "date": "2024-09-25T19:00:00.000Z",
+    "locationName": "Grand Theater, Seattle",
+    "description": "Celebrate cinema with exclusive premieres and Q&A sessions with directors. Experience storytelling at its finest.",
+    "location": {
+      "latitude": 47.606209,
+      "longitude": -122.332069
+    }
+  }
+]

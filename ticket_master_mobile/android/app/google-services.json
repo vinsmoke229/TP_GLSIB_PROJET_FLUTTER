@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1087455432826",
+    "project_id": "eventticketapp-de53a",
+    "storage_bucket": "eventticketapp-de53a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087455432826:android:74d04f23c0e31196e3abc3",
+        "android_client_info": {
+          "package_name": "com.rrdhoi.event_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHcnSQl5GykygvcjmoOKAgmDtAQy6x1Aw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

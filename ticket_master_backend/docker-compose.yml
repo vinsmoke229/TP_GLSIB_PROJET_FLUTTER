@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  # Base de données PostgreSQL
+  db:
+    image: postgres:15
+    container_name: ticket_db
+    restart: always
+    environment:
+      POSTGRES_DB: ticket_db
+      POSTGRES_USER: ticket_user
+      POSTGRES_PASSWORD: ticket_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ticket_user -d ticket_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Application Django
+  web:
+    build: .
+    container_name: ticket_backend
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=True
+      - USE_DOCKER=True
+      - DB_HOST=db
+      - DB_NAME=ticket_db
+      - DB_USER=ticket_user
+      - DB_PASSWORD=ticket_password
+      - DB_PORT=5432
+      - JWT_SECRET_KEY=dev_secret_key_change_in_production
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

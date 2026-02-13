@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Ticket - {{ evenement.titre_evenement }}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 480px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .header {
+            background: #1e293b;
+            color: white;
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .header h1 { 
+            font-size: 28px; 
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .status {
+            padding: 24px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .status.valid { 
+            background: #f1f5f9; 
+            color: #475569; 
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .status.used { 
+            background: #fef2f2; 
+            color: #991b1b; 
+            border-bottom: 1px solid #fecaca;
+        }
+        .content { padding: 32px 24px; }
+        .info-group {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .info-group:last-child { 
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .label {
+            font-size: 12px;
+            font-weight: 500;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .value {
+            font-size: 16px;
+            font-weight: 500;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+        .value + .value {
+            font-size: 14px;
+            font-weight: 400;
+            color: #64748b;
+            margin-top: 4px;
+        }
+        .btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-validate {
+            background: #059669;
+            color: white;
+        }
+        .btn-validate:hover:not(:disabled) { 
+            background: #047857; 
+            transform: translateY(-1px);
+        }
+        .btn-validate:disabled {
+            background: #d1d5db;
+            color: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .btn-cancel {
+            background: #6b7280;
+            color: white;
+        }
+        .btn-cancel:hover { 
+            background: #4b5563; 
+            transform: translateY(-1px);
+        }
+        #message {
+            padding: 16px;
+            border-radius: 12px;
+            margin-top: 20px;
+            font-weight: 500;
+            display: none;
+            border: 1px solid;
+        }
+        #message.success { 
+            background: #f0fdf4; 
+            color: #166534; 
+            border-color: #bbf7d0;
+        }
+        #message.error { 
+            background: #fef2f2; 
+            color: #dc2626; 
+            border-color: #fecaca;
+        }
+        .event-date-location {
+            display: flex;
+            gap: 16px;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+        @media (max-width: 480px) {
+            .container { margin: 10px; }
+            .header { padding: 24px 20px; }
+            .content { padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Validation de Ticket</h1>
+            <p>{{ evenement.titre_evenement }}</p>
+        </div>
+
+        {% if est_deja_utilise %}
+        <div class="status used">
+            Ce ticket a déjà été utilisé
+        </div>
+        {% else %}
+        <div class="status valid">
+            Ticket valide - Prêt à être scanné
+        </div>
+        {% endif %}
+
+        <div class="content">
+            <div class="info-group">
+                <div class="label">Participant</div>
+                <div class="value">{{ utilisateur.prenom }} {{ utilisateur.nom }}</div>
+            </div>
+
+            <div class="info-group">
+                <div class="label">Contact</div>
+                <div class="value">{{ utilisateur.email }}</div>
+                <div class="value">{{ utilisateur.tel }}</div>
+            </div>
+
+            <div class="info-group">
+                <div class="label">Événement</div>
+                <div class="value">{{ evenement.titre_evenement }}</div>
+                <div class="event-date-location">
+                    <span>{{ evenement.date|date:"d/m/Y" }}</span>
+                    <span>{{ evenement.lieu }}</span>
+                </div>
+            </div>
+
+            <div class="info-group">
+                <div class="label">Type de ticket</div>
+                <div class="value">{{ ticket.type }} - {{ quantite }} billet(s)</div>
+            </div>
+
+            <div class="info-group">
+                <div class="label">Total payé</div>
+                <div class="value">{{ total }} FCFA</div>
+            </div>
+
+            <div class="info-group">
+                <div class="label">Date d'achat</div>
+                <div class="value">{{ achat.date_achat|date:"d/m/Y H:i" }}</div>
+            </div>
+
+            {% if not est_deja_utilise %}
+            <button class="btn btn-validate" onclick="validateTicket()">
+                Valider le ticket
+            </button>
+            {% else %}
+            <button class="btn btn-validate" disabled>
+                Ticket utilisé le {{ achat.date_utilisation|date:"d/m/Y H:i" }}
+            </button>
+            {% endif %}
+
+            <button class="btn btn-cancel" onclick="window.close()">
+                Annuler
+            </button>
+
+            <div id="message"></div>
+        </div>
+    </div>
+
+    <script>
+        function validateTicket() {
+            const btn = document.querySelector('.btn-validate');
+            btn.disabled = true;
+            btn.innerHTML = 'Validation...';
+
+            fetch('/api/achats/validate/{{ code_qr }}/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const message = document.getElementById('message');
+                if (data.success) {
+                    message.className = 'success';
+                    message.textContent = data.message;
+                    message.style.display = 'block';
+                    
+                    document.querySelector('.status').className = 'status used';
+                    document.querySelector('.status').innerHTML = 'Ticket validé avec succès';
+                    
+                    btn.innerHTML = 'Validé';
+                    
+                    setTimeout(() => window.close(), 3000);
+                } else {
+                    message.className = 'error';
+                    message.textContent = data.error;
+                    message.style.display = 'block';
+                    btn.disabled = false;
+                    btn.innerHTML = 'Réessayer';
+                }
+            })
+            .catch(error => {
+                const message = document.getElementById('message');
+                message.className = 'error';
+                message.textContent = 'Erreur de connexion';
+                message.style.display = 'block';
+                btn.disabled = false;
+                btn.innerHTML = 'Réessayer';
+            });
+        }
+    </script>
+</body>
+</html>

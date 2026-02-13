@@ -1,0 +1,5 @@
+{
+  "name": "EventMaster Admin",
+  "description": "Interface d'administration pour la gestion d'événements, de tickets et l'analyse des ventes assistée par IA.",
+  "requestFramePermissions": []
+}
