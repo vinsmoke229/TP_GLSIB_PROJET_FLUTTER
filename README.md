@@ -42,22 +42,30 @@ IA : Intégration API Google Gemini
 Conteneurisation : Docker & Docker Compose
 
 ⚙️ Installation et Lancement
+
 1. Backend (Django)
+
 cd backend
 python -m venv venv
 source venv/bin/activate  # venv\Scripts\activate sur Windows
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver 0.0.0.0:8000
-2. Mobile (Flutter)
+
+3. Mobile (Flutter)
+   
 cd mobile
 flutter pub get
 flutter run
-3. Web Admin (React)
-code
+
+5. Web Admin (React)
+
+   
 cd web
 npm install
 npm run dev
+
+
 🗺️ Contrat d'Intégration (Important)
 
 Pour assurer la compatibilité entre le Web et le Mobile, les administrateurs doivent impérativement remplir les champs suivants lors de la création d'un événement :
