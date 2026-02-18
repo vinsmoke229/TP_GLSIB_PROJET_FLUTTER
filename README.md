@@ -1,5 +1,3 @@
----
-
 # 🎫 EventMaster — Plateforme de Billetterie Intelligente
 
 **EventMaster** est une solution complète de **gestion d’événements et de vente de billets**, conçue pour offrir une expérience fluide aussi bien aux utilisateurs qu’aux administrateurs.
