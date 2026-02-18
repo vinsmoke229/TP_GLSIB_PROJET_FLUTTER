@@ -43,11 +43,6 @@ Conteneurisation : Docker & Docker Compose
 
 ⚙️ Installation et Lancement
 1. Backend (Django)
-code
-Bash
-download
-content_copy
-expand_less
 cd backend
 python -m venv venv
 source venv/bin/activate  # venv\Scripts\activate sur Windows
@@ -55,20 +50,11 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver 0.0.0.0:8000
 2. Mobile (Flutter)
-code
-Bash
-download
-content_copy
-expand_less
 cd mobile
 flutter pub get
 flutter run
 3. Web Admin (React)
 code
-Bash
-download
-content_copy
-expand_less
 cd web
 npm install
 npm run dev
