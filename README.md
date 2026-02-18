@@ -1,5 +1,3 @@
-Voici un modèle de README.md simple, clair et professionnel, parfait pour ton dépôt GitHub. Il met en valeur tout le travail que tu as accompli.
-
 🎫 EventMaster - Solution de Billetterie Élite
 
 EventMaster est une plateforme complète de gestion d'événements et de vente de billets. Le projet combine une application mobile pour les clients, un tableau de bord web pour les administrateurs, le tout propulsé par un backend robuste en Django.
