@@ -1,79 +1,185 @@
-🎫 EventMaster - Solution de Billetterie Élite
+---
 
-EventMaster est une plateforme complète de gestion d'événements et de vente de billets. Le projet combine une application mobile pour les clients, un tableau de bord web pour les administrateurs, le tout propulsé par un backend robuste en Django.
+# 🎫 EventMaster — Plateforme de Billetterie Intelligente
 
-🚀 Fonctionnalités Principales
-📱 Application Mobile (Flutter)
+**EventMaster** est une solution complète de **gestion d’événements et de vente de billets**, conçue pour offrir une expérience fluide aussi bien aux utilisateurs qu’aux administrateurs.
 
-Authentification complète : Inscription, connexion et persistance de session (JWT).
+Le projet repose sur :
 
-Parcours de personnalisation : Configuration des intérêts et de la localisation à la première connexion.
+* 📱 une application mobile moderne pour les clients,
+* 💻 un backoffice web puissant pour les organisateurs,
+* ⚙️ un backend sécurisé et scalable.
 
-Système de Wallet (Fintech) : Portefeuille virtuel rechargeable pour acheter des billets en un clic.
+---
 
-Billetterie Intelligente : Génération de billets avec QR Code unique pour le contrôle d'accès.
+## 🚀 Fonctionnalités Principales
 
-Navigation GPS : Intégration Google Maps pour tracer l'itinéraire vers les lieux d'événements.
+### 📱 Application Mobile (Flutter)
 
-Assistant IA : Recommandations d'événements personnalisées basées sur les goûts de l'utilisateur.
+* 🔐 **Authentification complète**
 
-💻 Backoffice & Admin (React & Django)
+  * Inscription, connexion
+  * Gestion de session via JWT
 
-Gestion des Événements : Création et modification d'événements avec gestion multi-sessions (horaires multiples).
+* 🎯 **Parcours de personnalisation**
 
-Gestion des Stocks : Contrôle des types de tickets (Standard, VIP, VVIP) et des places disponibles.
+  * Sélection des centres d’intérêt
+  * Localisation à la première connexion
 
-Suivi des Ventes : Tableau de bord en temps réel avec statistiques financières.
+* 💰 **Wallet (Fintech)**
 
-Sécurité : Transactions atomiques pour garantir l'intégrité des soldes et des stocks.
+  * Portefeuille virtuel rechargeable
+  * Paiement rapide des billets en un clic
 
-🛠 Stack Technique
+* 🎟️ **Billetterie intelligente**
 
-Backend : Django 5.x, Django REST Framework (DRF)
+  * Génération de billets numériques
+  * QR Code unique pour le contrôle d’accès
 
-Base de données : PostgreSQL (Production) / SQLite (Développement)
+* 🗺️ **Navigation GPS**
 
-Mobile : Flutter 3.x (Architecture BLoC / Cubit)
+  * Itinéraire vers les lieux d’événements
+  * Intégration Google Maps
 
-Web Admin : React, TypeScript, Tailwind CSS
+* 🤖 **Assistant IA**
 
-IA : Intégration API Google Gemini
+  * Recommandation d’événements personnalisés
+  * Basée sur les goûts et l’historique utilisateur
 
-Conteneurisation : Docker & Docker Compose
+---
 
-⚙️ Installation et Lancement
+### 💻 Backoffice & Administration (React + Django)
 
-1. Backend (Django)
+* 🗓️ **Gestion des événements**
 
+  * Création / modification d’événements
+  * Gestion multi-sessions (plusieurs dates et horaires)
+
+* 🎫 **Gestion des tickets & stocks**
+
+  * Types de billets : Standard, VIP, VVIP
+  * Suivi des places disponibles en temps réel
+
+* 📊 **Suivi des ventes**
+
+  * Tableau de bord dynamique
+  * Statistiques financières et volume de ventes
+
+* 🔒 **Sécurité & intégrité**
+
+  * Transactions atomiques
+  * Protection des soldes et des stocks
+
+---
+
+## 🛠 Stack Technique
+
+### Backend
+
+* Django 5.x
+* Django REST Framework (DRF)
+
+### Base de données
+
+* PostgreSQL (production)
+* SQLite (développement)
+
+### Mobile
+
+* Flutter 3.x
+* Architecture BLoC / Cubit
+
+### Web Admin
+
+* React
+* TypeScript
+* Tailwind CSS
+
+### Intelligence Artificielle
+
+* API Google Gemini (recommandations intelligentes)
+
+### DevOps
+
+* Docker
+* Docker Compose
+
+---
+
+## ⚙️ Installation & Lancement
+
+### 1️⃣ Backend (Django)
+
+```bash
 cd backend
 python -m venv venv
-source venv/bin/activate  # venv\Scripts\activate sur Windows
+source venv/bin/activate   # venv\Scripts\activate sur Windows
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver 0.0.0.0:8000
+```
 
-3. Mobile (Flutter)
-   
+---
+
+### 2️⃣ Application Mobile (Flutter)
+
+```bash
 cd mobile
 flutter pub get
 flutter run
+```
 
-5. Web Admin (React)
+---
 
-   
+### 3️⃣ Web Admin (React)
+
+```bash
 cd web
 npm install
 npm run dev
+```
 
+---
 
-🗺️ Contrat d'Intégration (Important)
+## 🗺️ Contrat d’Intégration (⚠️ IMPORTANT)
 
-Pour assurer la compatibilité entre le Web et le Mobile, les administrateurs doivent impérativement remplir les champs suivants lors de la création d'un événement :
+⚠️ **Pour garantir la compatibilité entre le Web et le Mobile**, les administrateurs **doivent obligatoirement renseigner les champs suivants** lors de la création d’un événement :
 
-Catégorie : Music, Tech, Art, Sport, Food ou Tourism.
+* 🏷️ **Catégorie**
 
-Coordonnées : Latitude et Longitude pour le GPS mobile.
+  * `Music`, `Tech`, `Art`, `Sport`, `Food`, `Tourism`
 
-Sessions : Au moins une date et une heure rattachées.
+* 📍 **Coordonnées GPS**
 
-Devise : Les prix doivent être saisis en FCFA
+  * Latitude
+  * Longitude
+    👉 nécessaires pour la navigation mobile
+
+* 🗓️ **Sessions**
+
+  * Au moins **une date et une heure**
+  * Chaque événement doit avoir ≥ 1 session
+
+* 💱 **Devise**
+
+  * Tous les prix doivent être saisis en **FCFA**
+
+❌ Le non-respect de ces règles peut provoquer des erreurs côté mobile.
+
+---
+
+## 📌 Objectifs du Projet
+
+* Centraliser la gestion d’événements
+* Simplifier l’achat de billets
+* Offrir une expérience utilisateur moderne et sécurisée
+* Fournir aux organisateurs des outils de suivi performants
+
+---
+
+## 📄 Licence
+
+Projet académique / démonstratif — libre d’utilisation à des fins pédagogiques.
+
+---
+
