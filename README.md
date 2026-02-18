@@ -82,10 +82,4 @@ Coordonnées : Latitude et Longitude pour le GPS mobile.
 
 Sessions : Au moins une date et une heure rattachées.
 
-Devise : Les prix doivent être saisis en FCFA.
-
-
-
-Enregistre, fais un git commit et un git push.
-
-C'est le document parfait pour que ton prof comprenne en 30 secondes que ton projet est sérieux et complet ! 🟢🔥🚀
+Devise : Les prix doivent être saisis en FCFA
